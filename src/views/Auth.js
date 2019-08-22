@@ -36,9 +36,20 @@ class Auth extends Component {
       pSuccess: false,
       pFail: false,
       pVisible: false,
+      registerUser: false,
     };
   }
+
+  static navigationOptions = {
+    header: null,
+  };
+
+  changeField = () => {
+    this.setState({ registerUser: true });
+  };
+
   render() {
+    const { navigation } = this.props;
     return (
       <StyleProvider style={getTheme(platform)}>
         <Content>
@@ -101,10 +112,20 @@ class Auth extends Component {
                   </Button>
                 </Row>
               </Item>
-              <Button block info style={[style.input, { marginLeft: 15 }]}>
+              <Button
+                block
+                info
+                style={[style.input, { marginLeft: 15 }]}
+                onPress={() => navigation.navigate('MainScreenNavigator')}
+              >
                 <NBText>Login</NBText>
               </Button>
-              <Button bordered block style={[style.input, { marginLeft: 15 }]}>
+              <Button
+                onPress={() => this.changeField}
+                bordered
+                block
+                style={[style.input, { marginLeft: 15 }]}
+              >
                 <NBText>Register</NBText>
               </Button>
             </Form>

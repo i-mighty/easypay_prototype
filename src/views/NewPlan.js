@@ -25,15 +25,15 @@ import {
 import getTheme from '../native-base-theme/components';
 import platform from '../native-base-theme/variables/platform';
 import { CardView } from 'react-native-credit-card-input';
-import ThriftList from './ThriftList';
-import PlansList from './PlansList';
+import CreateFixedPlan from './CreateFixedPlan';
+import CreateThriftPlan from './CreateThriftPlan';
 
 class NewPlan extends Component {
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
         <Container>
-          <Header>
+          <Header hasTabs>
             <Left />
             <Body>
               <Title>New Plan</Title>
@@ -49,7 +49,7 @@ class NewPlan extends Component {
                   </TabHeading>
                 }
               >
-                <View style={{ padding: 30 }} />
+                <CreateThriftPlan />
               </Tab>
               <Tab
                 heading={
@@ -59,7 +59,8 @@ class NewPlan extends Component {
                   </TabHeading>
                 }
               >
-                <View style={{ padding: 30 }} />
+                {/* <View style={{ padding: 30 }}> */}
+                <CreateFixedPlan />
               </Tab>
             </Tabs>
           </Content>

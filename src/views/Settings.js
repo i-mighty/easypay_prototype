@@ -29,6 +29,7 @@ class Settings extends Component {
     };
   }
 
+  cwm
   render() {
     return (
       <Content

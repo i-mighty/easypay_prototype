@@ -41,12 +41,103 @@ class ThriftList extends Component {
             </CardItem>
             <CardItem header first style={{ borderRadius: 8 }}>
               <Left>
+                <Progress.Bar progress={0.7} borderRadius={2} color="#194C80" />
+              </Left>
+              <Right>
+                <Text style={material.body2}>
+                  {'\u20A6' + '1000 / Tomorrow'}
+                </Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card style={{ borderRadius: 8 }}>
+            <CardItem header last style={{ borderRadius: 8 }}>
+              <Left>
+                <Text style={material.body2}>Owo wa</Text>
+              </Left>
+              <Right>
+                <Text
+                  style={[material.body2, { color: platform.brandSuccess }]}
+                >
+                  Personal plan
+                </Text>
+              </Right>
+            </CardItem>
+            <CardItem header first style={{ borderRadius: 8 }}>
+              <Body style={{ alignItems: 'center' }}>
+                <Text style={[material.display2, { textAlign: 'center' }]}>
+                  {'\u20A6' + '10,000'}
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem header first style={{ borderRadius: 8 }}>
+              <Left>
+                <Progress.Bar progress={0.2} borderRadius={2} color="#194C80" />
+              </Left>
+              <Right>
+                <Text style={material.body2}>
+                  {'\u20A6' + '1000 / Tomorrow'}
+                </Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card style={{ borderRadius: 8 }}>
+            <CardItem header last style={{ borderRadius: 8 }}>
+              <Left>
+                <Text style={material.body2}>Ballers</Text>
+              </Left>
+              <Right>
+                <Text
+                  style={[material.body2, { color: platform.brandSuccess }]}
+                >
+                  Personal plan
+                </Text>
+              </Right>
+            </CardItem>
+            <CardItem header first style={{ borderRadius: 8 }}>
+              <Body style={{ alignItems: 'center' }}>
+                <Text style={[material.display2, { textAlign: 'center' }]}>
+                  {'\u20A6' + '10,000'}
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem header first style={{ borderRadius: 8 }}>
+              <Left>
                 <Progress.Bar progress={0.3} borderRadius={2} color="#194C80" />
               </Left>
               <Right>
                 <Text style={material.body2}>
                   {'\u20A6' + '1000 / Tomorrow'}
                 </Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card style={{ borderRadius: 8 }}>
+            <CardItem header last style={{ borderRadius: 8 }}>
+              <Left>
+                <Text style={material.body2}>Ventura</Text>
+              </Left>
+              <Right>
+                <Text
+                  style={[material.body2, { color: platform.brandSuccess }]}
+                >
+                  Personal plan
+                </Text>
+              </Right>
+            </CardItem>
+            <CardItem header first style={{ borderRadius: 8 }}>
+              <Body style={{ alignItems: 'center' }}>
+                <Text style={[material.display2, { textAlign: 'center' }]}>
+                  {'\u20A6' + '1,000'}
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem header first style={{ borderRadius: 8 }}>
+              <Left>
+                <Progress.Bar progress={1} borderRadius={2} color="#194C80" />
+              </Left>
+              <Right>
+                <Text style={material.body2}>{'\u20A6' + '1000 / Today'}</Text>
               </Right>
             </CardItem>
           </Card>

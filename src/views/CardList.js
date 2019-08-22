@@ -13,28 +13,20 @@ import {
 
 import { View } from 'react-native-animatable';
 import { material, materialColors } from 'react-native-typography';
+import AddNewCard from './AddNewCard';
 class CardList extends Component {
+  state = {
+    cardStored: false,
+  };
+
+  renderComp = () => {
+    this.state.cardStored ? <CreditCard /> : <AddNewCard />;
+  };
+
   render() {
     return (
       <ScrollView>
-        <CreditCard />
-        {/*<View style={{justifyContent: 'center', alignItems: 'center'}}>*/}
-        {/*    <Row style={{marginVertical: 10}}>*/}
-        {/*        <NBIcon name={'credit-card'} type={'EvilIcons'} style={{color: materialColors.blackTertiary, fontSize: 60}}/>*/}
-        {/*    </Row>*/}
-        {/*    <Row style={{marginVertical: 10}}>*/}
-        {/*        <NBText style={{...material.subheading, color: materialColors.blackTertiary}}>*/}
-        {/*            You don't have any saved cards.*/}
-        {/*        </NBText>*/}
-        {/*    </Row>*/}
-        {/*    <Row style={{marginVertical: 10}}>*/}
-        {/*        <Button light block>*/}
-        {/*            <NBText style={{...material.title, color: materialColors.blackTertiary}}>*/}
-        {/*                Add a new Card*/}
-        {/*            </NBText>*/}
-        {/*        </Button>*/}
-        {/*    </Row>*/}
-        {/*</View>*/}
+        {this.state.cardStored ? <CreditCard /> : <AddNewCard />}
       </ScrollView>
     );
   }

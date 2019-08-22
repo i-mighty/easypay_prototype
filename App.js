@@ -17,22 +17,18 @@ import {
 } from 'react-native';
 import { create } from 'apisauce';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import Auth from './src/views/Auth';
 import Home from './src/views/Home';
 import Profile from './src/views/Profile';
 import Settings from './src/views/Settings';
-import NewPlan from './src/views/NewPlan';
+import Routes from './src/views/Routes';
+import CreditCardExample from './src/views/CreditCardExample';
+import CreateThriftPlan from './src/views/CreateThriftPlan';
+import CreateFixedPlan from './src/views/CreateFixedPlan';
 
 const api = create({ baseURL: 'https://api.github.com' });
 
 const App = () => {
-  return <Home />;
+  return <Routes />;
 };
 export default App;

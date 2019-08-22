@@ -43,7 +43,7 @@ class PlansList extends Component {
             </CardItem>
             <CardItem header first style={{ borderRadius: 8 }}>
               <Left>
-                <Progress.Bar progress={0.3} borderRadius={2} color="#194C80" />
+                <Progress.Bar progress={0.8} borderRadius={2} color="#194C80" />
               </Left>
               <Right>
                 <Text style={material.body2}>{'\u20A6' + '1000 '}</Text>

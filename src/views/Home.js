@@ -40,40 +40,38 @@ class Home extends Component {
     return (
       <StyleProvider style={getTheme(platform)}>
         <Container>
-          <Header>
+          <Header hasTabs>
             <Left />
             <Body>
               <Title>MoniBag</Title>
             </Body>
           </Header>
-          <Content>
-            <Tabs>
-              <Tab
-                heading={
-                  <TabHeading>
-                    <NBText>Thrift Plans</NBText>
-                    <Icon name={'wallet'} type={'Entypo'} />
-                  </TabHeading>
-                }
-              >
-                <View style={{ padding: 30 }}>
-                  <ThriftList />
-                </View>
-              </Tab>
-              <Tab
-                heading={
-                  <TabHeading>
-                    <NBText>Fixed Plans</NBText>
-                    <Icon name={'layers'} type={'Entypo'} />
-                  </TabHeading>
-                }
-              >
-                <View style={{ padding: 30 }}>
-                  <PlansList />
-                </View>
-              </Tab>
-            </Tabs>
-          </Content>
+          <Tabs>
+            <Tab
+              heading={
+                <TabHeading>
+                  <NBText>Thrift Plans</NBText>
+                  <Icon name={'wallet'} type={'Entypo'} />
+                </TabHeading>
+              }
+            >
+              <View style={{ padding: 30 }}>
+                <ThriftList />
+              </View>
+            </Tab>
+            <Tab
+              heading={
+                <TabHeading>
+                  <NBText>Fixed Plans</NBText>
+                  <Icon name={'layers'} type={'Entypo'} />
+                </TabHeading>
+              }
+            >
+              <View style={{ padding: 30 }}>
+                <PlansList />
+              </View>
+            </Tab>
+          </Tabs>
         </Container>
       </StyleProvider>
     );
