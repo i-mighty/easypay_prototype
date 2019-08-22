@@ -25,11 +25,10 @@ class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nameDisabled: true,
+      nameDisabled: false,
     };
   }
 
-  cwm
   render() {
     return (
       <Content

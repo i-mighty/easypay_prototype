@@ -36,6 +36,10 @@ class Home extends Component {
     this.state = {};
   }
 
+  static navigationOptions = {
+    header: null,
+  };
+
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>

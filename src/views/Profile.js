@@ -36,6 +36,10 @@ class MyComponent extends Component {
     };
   }
 
+  static navigationOptions = {
+    header: null,
+  };
+
   componentDidMount() {}
 
   componentDidUpdate(prevProps, prevState) {}
