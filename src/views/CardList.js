@@ -16,7 +16,7 @@ import { material, materialColors } from 'react-native-typography';
 import AddNewCard from './AddNewCard';
 class CardList extends Component {
   state = {
-    cardStored: false,
+    cardStored: true,
   };
 
   renderComp = () => {

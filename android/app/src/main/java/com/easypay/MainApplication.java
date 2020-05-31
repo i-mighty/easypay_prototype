@@ -1,4 +1,4 @@
-package com.monibag;
+package com.easypay;
 
 import android.app.Application;
 import android.util.Log;

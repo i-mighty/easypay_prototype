@@ -7,6 +7,7 @@ import Auth from './Auth';
 import {
   createAppContainer,
   createStackNavigator,
+  createSwitchNavigator,
   createBottomTabNavigator,
 } from 'react-navigation';
 import {
@@ -63,14 +64,15 @@ const MainScreenNavigator = createBottomTabNavigator(
   }
 );
 
-const AuthStack = createStackNavigator(
+const AuthStack = createSwitchNavigator(
   {
     Auth: { screen: Auth },
-    MainScreenNavigator: { screen: MainScreenNavigator },
+    MainScreenNavigator: { screen: MainScreenNavigator, },
   },
   {
-    tabBarOptions: {
-      showLabel: false,
+    initialRouteName: 'MainScreenNavigator',
+    defaultNavigationOptions: {
+      header: null,
     },
   }
 );

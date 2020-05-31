@@ -13,9 +13,11 @@ import {
   Text as NBText,
   Row,
 } from 'native-base';
-import { material } from 'react-native-typography';
+import { material, materialColors  } from 'react-native-typography';
+import Modal from 'react-native-modal';
 import styles from '../style';
 import getTheme from '../native-base-theme/components';
+import auth from "@react-native-firebase/auth";
 import platform from '../native-base-theme/variables/platform';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
@@ -37,7 +39,36 @@ class Auth extends Component {
       pFail: false,
       pVisible: false,
       registerUser: false,
+      onRegister: true,
+      email: '',
+      password: '',
+      name: ''
     };
+  }
+
+  updateEmailValue = (value) => {
+    this.setState({email: value})
+  }
+
+  updatePasswordValue = (value) => {
+    this.setState({password: value})
+  }
+
+  updateNameValue = (value) => {
+    this.setState({name: value})
+  }
+
+  login = () => {
+    //TODO: Validate form data
+    //TODO: Firebase auth is already imported and configured. Perform the Login action.
+    //TODO: Navigate to the home page 
+  }
+
+  register = () => {
+    //TODO: Validate form data
+    //TODO: Firebase auth is already imported and configured. Perform the Register action.
+    //TODO: Send user verification
+    //TODO: Navigate to the home page 
   }
 
   static navigationOptions = {
@@ -60,16 +91,15 @@ class Auth extends Component {
               width: SCREEN_WIDTH,
               height: 0,
               borderTopColor: '#194C80',
-              borderTopWidth: SCREEN_HEIGHT * 0.5,
-              // borderRightWidth: SCREEN_WIDTH,
+              borderTopWidth: SCREEN_HEIGHT * 0.4,
               elevation: 10,
               borderRightColor: 'transparent',
             }}
           >
             <View style={{ top: -200 }}>
               <Image
-                source={require('../assets/MBLogo.png')}
-                style={{ width: 100, height: 100, marginVertical: 10 }}
+                source={require('../assets/banner.png')}
+                style={{marginVertical: 10 }}
               />
               <Text style={[material.headlineWhite, { textAlign: 'center' }]}>
                 Log in
@@ -81,17 +111,16 @@ class Auth extends Component {
           >
             <Form>
               <Item style={style.input}>
-                {/* <Icon active name='mail' style={{color: platform.brandDark}} type="Ionicons"/> */}
-                <Input placeholder="Email Address" />
+                <Input placeholder="Email Address" onChangeText={this.updateEmailValue}/>
                 {!this.state.eFail || this.state.eSuccess ? null : (
                   <Icon name="checkmark-circle" />
                 )}
               </Item>
               <Item style={style.input}>
-                {/* <Icon active name='lock' style={{color: platform.brandDark}} type="Ionicons"/> */}
                 <Input
                   placeholder="Password"
                   secureTextEntry={!this.state.pVisible}
+                  onChangeText={this.updatePasswordValue}
                 />
                 {!this.state.pFail || !this.state.pSuccess ? (
                   <Icon
@@ -120,8 +149,11 @@ class Auth extends Component {
               >
                 <NBText>Login</NBText>
               </Button>
+              <Text style={[material.body1, {textAlign: 'center'}]}>
+                Or register if you don't have a account
+              </Text>
               <Button
-                onPress={() => this.changeField}
+                onPress={this.changeField}
                 bordered
                 block
                 style={[style.input, { marginLeft: 15 }]}
@@ -130,9 +162,45 @@ class Auth extends Component {
               </Button>
             </Form>
           </View>
+          <Modal
+            isVisible={this.state.registerUser}
+            onSwipeComplete={this.modalToggle}
+            swipeDirection={['up', 'down', 'left', 'right']}
+            onBackdropPress={this.modalToggle}
+            style={{
+              justifyContent: 'flex-end',
+              margin: 0,
+              marginTop: 100,
+            }}
+          >
+            <Form Form style = {{
+                paddingVertical: 100,
+                paddingHorizontal: 15,
+                backgroundColor: materialColors.whitePrimary
+            }}>
+              <Item style={style.input}>
+                <Input placeholder="Your name" onChangeText={this.updateNameValue} />
+              </Item>
+              <Button
+                onPress={() => this.changeField}
+                block
+                style={[style.input, { marginLeft: 15 }]}
+              >
+                <NBText>Continue registration</NBText>
+              </Button>
+              <Text style={[material.body1, {textAlign: 'center'}]}>
+                By continuing the registration, you agree to our terms and conditions
+              </Text>
+            </Form>
+          </Modal>
         </Content>
       </StyleProvider>
     );
+  }
+
+  modalToggle() {
+    const registerUser = this.state.registerUser;
+    this.setState({ registerUser: !registerUser });
   }
 }
 
