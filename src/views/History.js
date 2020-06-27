@@ -8,7 +8,16 @@ import {
   Left,
   Right,
   StyleProvider,
-  List, ListItem, Text, Thumbnail, Button
+  List,
+  ListItem,
+  Text,
+  Title,
+  Thumbnail,
+  Button,
+  Icon,
+  Content,
+  Container,
+  Header,
 } from 'native-base';
 import getTheme from '../native-base-theme/components';
 import platform from '../native-base-theme/variables/platform';
@@ -16,10 +25,9 @@ import { material } from 'react-native-typography';
 import * as Progress from 'react-native-progress';
 
 class HistoryList extends Component {
-
   constructor(props) {
     super(props);
-    const {data, debit} = props;
+    const { data, debit } = props;
     this.state = {
       basic: true,
       listViewData: data,
@@ -30,27 +38,98 @@ class HistoryList extends Component {
     rowMap[`${secId}${rowId}`].props.closeRow();
     const newData = [...this.state.listViewData];
     newData.splice(rowId, 1);
+
     this.setState({ listViewData: newData });
   }
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
-          <List>
-            <ListItem itemDivider style={[{alignItems: 'center', justifyContent: 'center'}]}>
-              <Text style={{textAlign: 'center', ...material.headline}}>History</Text>
-            </ListItem> 
-            <ListItem>
+        <Container>
+          <Header Header hasTabs noLeft noShadow>
+            <Left />
+            <Body>
+              <Title>Transaction History</Title>
+            </Body>
+          </Header>
+          <Content padder>
+            <Card>
+              <CardItem bordered>
+                <Body>
+                  <Text>Josiah</Text>
+                  <Text note numberOfLines={2}>
+                    Amount in Naira
+                  </Text>
+                </Body>
+                <Right>
+                  <Icon name='arrow-forward' />
+                </Right>
+              </CardItem>
+              <CardItem bordered>
+                <Body>
+                  <Text>Michael</Text>
+                  <Text note numberOfLines={2}>
+                    Amount in Naira
+                  </Text>
+                </Body>
+                <Right>
+                  <Icon name='arrow-forward' />
+                </Right>
+              </CardItem>
+              <CardItem bordered>
+                <Body>
+                  <Text>Josiah</Text>
+                  <Text note numberOfLines={2}>
+                    Amount in Naira
+                  </Text>
+                </Body>
+                <Right>
+                  <Icon name='arrow-forward' />
+                </Right>
+              </CardItem>
+              <CardItem bordered>
+                <Body>
+                  <Text>Michael</Text>
+                  <Text note numberOfLines={2}>
+                    Amount in Naira
+                  </Text>
+                </Body>
+                <Right>
+                  <Icon name='arrow-forward' />
+                </Right>
+              </CardItem>
+              <CardItem bordered>
+                <Body>
+                  <Text>Josiah</Text>
+                  <Text note numberOfLines={2}>
+                    Amount in Naira
+                  </Text>
+                </Body>
+                <Right>
+                  <Icon name='arrow-forward' />
+                </Right>
+              </CardItem>
+              <CardItem bordered>
+                <Body>
+                  <Text>Michael</Text>
+                  <Text note numberOfLines={2}>
+                    Amount in Naira
+                  </Text>
+                </Body>
+                <Right>
+                  <Icon name='arrow-forward' />
+                </Right>
+              </CardItem>
+
+              {/* <CardItem footer bordered>
               <Body>
-                <Text>Target user name here</Text>
-                <Text note numberOfLines={1}>Amount in Naira</Text>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
+                <Button full onPress={() => alert('This is Card Header')}>
+                  <Text>Send Money</Text>
                 </Button>
-              </Right>
-            </ListItem>
-          </List>
+              </Body>
+            </CardItem> */}
+            </Card>
+          </Content>
+        </Container>
       </StyleProvider>
     );
   }
