@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'MoniBag' do
-  # Pods for MoniBag
+target 'EasyPay' do
+  # Pods for EasyPay
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -29,7 +29,7 @@ target 'MoniBag' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 
-  target 'MoniBagTests' do
+  target 'EasyPayTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -37,10 +37,10 @@ target 'MoniBag' do
   use_native_modules!
 end
 
-target 'MoniBag-tvOS' do
-  # Pods for MoniBag-tvOS
+target 'EasyPay-tvOS' do
+  # Pods for EasyPay-tvOS
 
-  target 'MoniBag-tvOSTests' do
+  target 'EasyPay-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

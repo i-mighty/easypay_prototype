@@ -22,58 +22,78 @@ import {
   Card,
   CardItem,
 } from 'native-base';
+import { RNCamera } from 'react-native-camera';
+import QRCode from 'react-native-qrcode-svg';
+import QRCodeScanner from 'react-native-qrcode-scanner';
 import getTheme from '../native-base-theme/components';
 import platform from '../native-base-theme/variables/platform';
 import { CardView } from 'react-native-credit-card-input';
 import ThriftList from './ThriftList';
 import PlansList from './PlansList';
+import HistoryList from './History';
+import Recieve from './Recieve';
+import Send from './Send';
 
 // const NewIcon = createIconSetFromFontello(fontelloConfig, 'line-icons', 'line-icons.ttf');
-
+/**
+ * TODO:  Pass retrieve usr details from firebase
+ * TODO: Hand qrcode scanner action and pass the data.
+ * TODO: Creata the transfer action on QR Code scan or input
+ * TODO: For input, fire action onBlur. PS:: Due to the nature of the input we cannot have a button
+ *
+ */
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      targetQRCode: '',
+    };
   }
 
   static navigationOptions = {
     header: null,
   };
 
+  onQRSuccess = barcodeString => {};
+
+  makePayment = () => {
+    // Action to complete payment after srtring retrival either QRCode or Inout
+  };
+
+  qrCodeInput = code => {
+    this.setState({ targetQRCode: code });
+  };
+
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
         <Container>
-          <Header hasTabs>
+          <Header Header hasTabs noLeft noShadow>
             <Left />
             <Body>
-              <Title>MoniBag</Title>
+              <Title>EasyPay</Title>
             </Body>
           </Header>
           <Tabs>
             <Tab
               heading={
                 <TabHeading>
-                  <NBText>Thrift Plans</NBText>
+                  <NBText>Receive</NBText>
                   <Icon name={'wallet'} type={'Entypo'} />
                 </TabHeading>
               }
             >
-              <View style={{ padding: 30 }}>
-                <ThriftList />
-              </View>
+              <Recieve />
             </Tab>
             <Tab
               heading={
                 <TabHeading>
-                  <NBText>Fixed Plans</NBText>
-                  <Icon name={'layers'} type={'Entypo'} />
+                  <NBText>Send</NBText>
+                  <Icon name={'direction'} type={'Entypo'} />
                 </TabHeading>
               }
             >
-              <View style={{ padding: 30 }}>
-                <PlansList />
-              </View>
+              <Send />
             </Tab>
           </Tabs>
         </Container>
